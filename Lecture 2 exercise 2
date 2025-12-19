@@ -1,0 +1,31 @@
+print("Let's calculate how long it would take for you to save")
+print ("#####################")
+
+#user inputs
+yearly_salary = float(input("What's your yearly salary? "))
+portion_saved = float(input("What's the portion of your salary to saved? "))
+cost_of_dream_home = float(input("How much does your dream home cost "))
+semi_annual_raise = float(input("What's the semi annual raise? "))
+
+#constants(defining the terms)
+portion_down_payment = 0.25
+amount_saved = 0.0
+annual_rate_of_return = 0.05
+months = 0
+
+#calculations
+
+down_payment = cost_of_dream_home*portion_down_payment
+
+#loop (you want to the loop to stop when your amount saved is equivalent to the downpayment)
+while down_payment > amount_saved:
+    amount_saved += amount_saved * (annual_rate_of_return/12)
+    amount_saved += (yearly_salary/12.0) * portion_saved
+    months += 1
+    if months % 6 == 0:
+        yearly_salary += yearly_salary*semi_annual_raise
+
+
+
+print(f"It would take {months} to save {down_payment} for your dream house downpayment")
+
